@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 # -*- coding: utf-8 -*-
 """
 #name   = shuoshuo
@@ -23,7 +24,8 @@ I love animals. They taste delicious.
 ┗┻┛  ┗┻┛
 """
 import sys
-type = sys.getfilesystemencoding()
+reload(sys)
+sys.setdefaultencoding('utf8')
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
@@ -53,21 +55,21 @@ def get_shuoshuo(qq):
     for con, sti in zip(content, stime):
         data = {
             'time': sti.text,
-            'shuos': con
+            'shuos': con.text
         }
-        print(data)
-    pages = driver.page_source
-    soup = BeautifulSoup(pages, 'lxml')
-
-    cookie = driver.get_cookies()
-    cookie_dict = []
-    for c in cookie:
-        ck = "{0}={1};".format(c['name'], c['value'])
-        cookie_dict.append(ck)
-    i = ''
-    for c in cookie_dict:
-        i += c
-    print('Cookies:', i)
+        print (data)
+    # pages = driver.page_source
+    # soup = BeautifulSoup(pages, 'lxml')
+    #
+    # cookie = driver.get_cookies()
+    # cookie_dict = []
+    # for c in cookie:
+    #     ck = "{0}={1};".format(c['name'], c['value'])
+    #     cookie_dict.append(ck)
+    # i = ''
+    # for c in cookie_dict:
+    #     i += c
+    # print('Cookies:', i)
     print("==========完成================")
 
     # driver.close()
