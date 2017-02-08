@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 """
 #name   = shuoshuo
 #author = tangtao
@@ -23,9 +23,9 @@ I love animals. They taste delicious.
 ┃┫┫  ┃┫┫
 ┗┻┛  ┗┻┛
 """
+
 import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
@@ -33,6 +33,7 @@ import time
 # 使用selenium
 driver = webdriver.Chrome()
 driver.maximize_window()
+f = open("file.txt", "r+")
 
 
 # 登录QQ空间
@@ -57,10 +58,14 @@ def get_shuoshuo(qq):
             'time': sti.text,
             'shuos': con.text
         }
-        print (data)
-    # pages = driver.page_source
-    # soup = BeautifulSoup(pages, 'lxml')
-    #
+        data=str(data)
+
+        # print (data.decode("gbk").encode('utf-8').decode('utf-8'))
+        f.writelines(data)
+        f.writelines("\n")
+    pages = driver.page_source
+    soup = BeautifulSoup(pages, 'lxml')
+
     # cookie = driver.get_cookies()
     # cookie_dict = []
     # for c in cookie:
@@ -71,6 +76,7 @@ def get_shuoshuo(qq):
     #     i += c
     # print('Cookies:', i)
     print("==========完成================")
+    f.close()
 
     # driver.close()
     # driver.quit()
