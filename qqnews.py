@@ -4,7 +4,7 @@
 #name   = qqnews
 #author = tangtao
 #time   = 2017/2/8 10:35
-#Description=添加描述信息
+#Description=爬取qq新闻的首页的所有大标题的新闻 放入指定的json文件夹下
 #eMail   =tangtao@lhtangtao.com
 #git     =lhtangtao
 # code is far away from bugs with the god animal protecting
