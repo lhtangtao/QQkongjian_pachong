@@ -59,12 +59,14 @@ def get_shuoshuo(qq):
                 f.write('\n')
                 json.dump([data], f, ensure_ascii=False)
         time.sleep(2)
-        xpath = ".//*[@id='pager_next_" + str(i) + "']/span"
-        driver.find_element_by_xpath(xpath).click()
+        print i, last_page
+        if int(i)+1 != last_page:
+            xpath = ".//*[@id='pager_next_" + str(i) + "']/span"
+            driver.find_element_by_xpath(xpath).click()
         i += 1
         time.sleep(3)
     print("==========完成================")
 
 
 if __name__ == '__main__':
-    get_shuoshuo('670076298')
+    get_shuoshuo('846820732')
