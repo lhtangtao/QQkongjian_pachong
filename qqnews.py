@@ -23,11 +23,15 @@ I love animals. They taste delicious.
 ┗┻┛  ┗┻┛
 """
 
+import sys
 
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 # 引入相关模块
 import requests
 from bs4 import BeautifulSoup
+import json
 
 url = "http://news.qq.com/"
 # 请求腾讯新闻的URL，获取其text文本
@@ -44,7 +48,9 @@ for n in news_titles:
     link = n.get("href")
     data = {
         '标题': title,
-        '链接': link
-    }
-    print str(data).decode('utf-8')
+        '链接': link,
 
+    }
+    with open('haha.json', "a+") as f:
+        f.write('\n')
+        json.dump([data], f, ensure_ascii=False)
