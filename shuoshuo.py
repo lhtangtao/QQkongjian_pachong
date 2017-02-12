@@ -22,14 +22,14 @@ I love animals. They taste delicious.
 ┃┫┫  ┃┫┫
 ┗┻┛  ┗┻┛
 """
-import json
-import sys
-
-reload(sys)
-sys.setdefaultencoding("utf-8")
-from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
+import json
+import sys
+sys.setdefaultencoding("utf-8")
+
+reload(sys)
+
 
 # 使用selenium
 driver = webdriver.Chrome()

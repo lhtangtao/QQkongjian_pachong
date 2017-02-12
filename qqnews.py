@@ -28,7 +28,6 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-# 引入相关模块
 import requests
 from bs4 import BeautifulSoup
 import json
